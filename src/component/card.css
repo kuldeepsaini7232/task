@@ -1,0 +1,29 @@
+.card{
+    height:180px;
+    width:450px;
+    background-color:#a4508b;
+    margin:auto;
+    margin-top:22px;
+    border-radius:12px;
+    position:relative;
+}
+
+.card h6{
+    font-size:28px;
+    padding:14px;
+    color:pink;
+    text-transform: capitalize;
+}
+.card h5{
+    font-size:18px;
+    width:32px;
+    padding-left: 22px;
+    color:pink;
+}
+
+.btn{
+    color:white;
+    position:absolute;
+    bottom:25px;
+    left:25px;
+}

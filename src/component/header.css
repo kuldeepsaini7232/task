@@ -1,0 +1,13 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+h1{
+    color:pink;
+    font-family:cursive;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    padding:12px;
+    font-size:38px;
+}
