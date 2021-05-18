@@ -7,9 +7,29 @@ import { connect } from 'react-redux';
 import { addItem } from '../action/action';
 
 const Box = ({ open, close, addItem }) => {
+
+    const upload=async(e)=>{
+        const file=e.target.files[0];
+        const Base64=await convertBase64(file)
+        setBaseImage(Base64);
+    };
+
+    const convertBase64=(file)=>{
+       return new Promise((resolve,reject)=>{
+           const fileReader=new FileReader();
+           fileReader.readAsDataURL(file);
+           fileReader.onload=(()=>{
+               resolve(fileReader.result);
+           })
+           fileReader.onerror=((err)=>{
+               reject(err)
+           })
+       })
+    }
     const today = moment().format("MMM Do");
     const [dream, setDream] = useState("");
     const [tag, setTag] = useState('');
+    const [baseImage,setBaseImage]=useState('');
     const handleSubmit = () => {
         if (dream === '') {
             return alert("Please Enter Something");
@@ -19,11 +39,12 @@ const Box = ({ open, close, addItem }) => {
             id: v4(),
             tag: tag,
             date:moment().format("MMM Do"),
-            color:'red',
+            image:baseImage,
         }
         addItem(Item)
         setDream('');
         setTag('');
+        setBaseImage('');
         close();//this method we get as props
     }
     return (
@@ -37,6 +58,10 @@ const Box = ({ open, close, addItem }) => {
                     <h4>Enter your tag:</h4>
                     <input type="text" placeholder="Add tag" value={tag} onChange={e => setTag(e.target.value)}></input>
                 </div>
+                <label htmlFor="myInput" className="button">Upload image</label>
+                <input type="file" className="file" id="myInput" onChange={(e)=>{
+                    upload(e);
+                }}/>
             </div>
         </div>
     );

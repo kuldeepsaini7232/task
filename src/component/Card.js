@@ -11,6 +11,7 @@ const Card = ({ item, Delete }) => {
             return <div className='card' key={ele.id}>
          <h3>{ele.date}</h3>
          <h6>{ele.dream}</h6>
+         <img src={ele.image} />
          <h5>{ele.tag}</h5>
          <DeleteOutlineIcon style={{ fontSize:"36px"}}className='btn' onClick={()=>Delete(ele.id)}/>
         </div>

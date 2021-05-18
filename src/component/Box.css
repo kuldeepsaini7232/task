@@ -59,3 +59,18 @@ input{
 button:hover{
     cursor:pointer;
 }
+input[type="file"] {
+    display:none;
+  }
+  .button {
+    display: inline-block;
+    padding: 16px 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    background:linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+    font-size: 16px;
+    font-weight: bold;
+    color:white;
+    margin-top:10px;
+    margin-left:5px;
+  }
