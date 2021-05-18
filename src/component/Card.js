@@ -4,18 +4,17 @@ import { removeItem } from '../action/action';
 import './card.css';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
-
 const Card = ({ item, Delete }) => {
     return(
         <div>
-            {console.log(Delete)}
-            {item.map((ele)=>{
-                return <div className="card" key={ele.id}>
-                    <h6>{ele.dream}</h6>
-                    <h5>{ele.tag}</h5>
-                    <DeleteOutlineIcon className="btn" onClick={()=>Delete(ele.id)}/>
-                    </div>
-            })}
+        {item.map((ele)=>{
+            return <div className='card' key={ele.id}>
+         <h3>{ele.date}</h3>
+         <h6>{ele.dream}</h6>
+         <h5>{ele.tag}</h5>
+         <DeleteOutlineIcon style={{ fontSize:"36px"}}className='btn' onClick={()=>Delete(ele.id)}/>
+        </div>
+        })}
         </div>
     )
 }

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { addItem } from '../action/action';
 
 const Box = ({ open, close, addItem }) => {
-    const today = parseInt(moment().format("Do"));
+    const today = moment().format("MMM Do");
     const [dream, setDream] = useState("");
     const [tag, setTag] = useState('');
     const handleSubmit = () => {
@@ -17,7 +17,9 @@ const Box = ({ open, close, addItem }) => {
         const Item = {
             dream: dream,
             id: v4(),
-            tag: tag
+            tag: tag,
+            date:moment().format("MMM Do"),
+            color:'red',
         }
         addItem(Item)
         setDream('');
@@ -28,7 +30,7 @@ const Box = ({ open, close, addItem }) => {
         <div className="box" style={{ display: open ? 'block' : 'none' }}>
             <div>
                 <CloseIcon onClick={close} style={{ color: 'white', fontSize: '28px' }} />
-                <h3>{today}Apr</h3>
+                <h3>{today}</h3>
                 <button onClick={handleSubmit}>Save</button>
                 <textarea rows="10" cols="50" value={dream} onChange={e => setDream(e.target.value)} placeholder="Enter your dream here"></textarea>
                 <div>

@@ -20,10 +20,18 @@
     padding-left: 22px;
     color:pink;
 }
-
+h3{
+    color:pink;
+    font-family:cursive;
+    padding:8px;
+}
 .btn{
-    color:white;
+    color:pink;
     position:absolute;
     bottom:25px;
-    left:25px;
+    right:10px;
+}
+
+.btn:hover{
+    cursor:pointer;
 }
